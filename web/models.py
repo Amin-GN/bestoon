@@ -8,6 +8,8 @@ class Expense(models.Model):
     date=models.DateTimeField()
     amount=models.BigIntegerField()
     user= models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    def __Unicode__(self):
+        return '{}-{}-{}'.format(self.user,self.date,self.text,self.amount)
 
 
 class Income(models.Model):
@@ -15,3 +17,5 @@ class Income(models.Model):
     date=models.DateTimeField()
     amount=models.BigIntegerField()
     user=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    def __Unicode__(self):
+        return '{}-{}-{}'.format(self.user,self.date,self.text,self.amount)
